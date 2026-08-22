@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{drawerNumber}}번 서랍</title>
+    <link rel="stylesheet" href="/css/drawer.css?v=20260823">
+</head>
+<body>
+<main class="page-shell drawer-open-shell">
+    <section class="drawer-open" aria-labelledby="drawer-title">
+        <a class="back-link" href="/home">닫기</a>
+
+        <div class="opened-drawer" aria-hidden="true">
+            <span class="opened-drawer-face"></span>
+            <span class="opened-drawer-shadow"></span>
+        </div>
+
+        <p class="eyebrow">열린 서랍</p>
+        <h1 id="drawer-title">{{drawerNumber}}번 서랍</h1>
+
+        {{#hasLetter}}
+            <div class="letter-preview">
+                <p>{{content}}</p>
+            </div>
+        {{/hasLetter}}
+
+        {{^hasLetter}}
+            <div class="empty-drawer">
+                <p>아직 이 서랍에는 편지가 없습니다.</p>
+            </div>
+        {{/hasLetter}}
+    </section>
+</main>
+</body>
+</html>

@@ -1,0 +1,21 @@
+services:
+  app:
+    image: todayletter:latest
+    container_name: todayletter-app
+    restart: unless-stopped
+    environment:
+      DB_URL: jdbc:mysql://todayletter-mysql:3306/todayletter?serverTimezone=Asia/Seoul&characterEncoding=UTF-8
+      DB_USERNAME: todayletter_app
+      DB_PASSWORD: "hook040101"
+      TZ: Asia/Seoul
+    networks:
+      - proxy
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.todayletter.rule=Host(`project1.khoon.net`)"
+      - "traefik.http.routers.todayletter.entrypoints=web"
+      - "traefik.http.services.todayletter.loadbalancer.server.port=8080"
+
+networks:
+  proxy:
+    external: true

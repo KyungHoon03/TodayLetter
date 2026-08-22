@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>관리자 확인</title>
+    <link rel="stylesheet" href="/css/drawer.css?v=20260823">
+</head>
+<body>
+<main class="page-shell letter-write-shell">
+    <section class="letter-write" aria-labelledby="admin-title">
+        <a class="back-link" href="/">닫기</a>
+
+        <p class="eyebrow">관리자 입장</p>
+        <h1 id="admin-title">비밀번호 확인</h1>
+
+        <form class="letter-form" action="/admin/login" method="post">
+            <label for="password">비밀번호</label>
+            <input id="password" name="password" type="password" required>
+
+            {{#hasError}}
+                <p class="form-error">비밀번호가 맞지 않습니다.</p>
+            {{/hasError}}
+
+            <div class="letter-actions">
+                <a class="secondary-link" href="/">닫기</a>
+                <button class="primary-link" type="submit">입장</button>
+            </div>
+        </form>
+    </section>
+</main>
+</body>
+</html>

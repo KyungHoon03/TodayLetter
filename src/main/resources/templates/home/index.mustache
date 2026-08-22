@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>오늘의 서랍</title>
+    <link rel="stylesheet" href="/css/drawer.css?v=20260823">
+</head>
+<body>
+<main class="page-shell">
+    <section class="drawer-header" aria-labelledby="page-title">
+        <p class="eyebrow">익명의 편지가 머무는 곳</p>
+        <h1 id="page-title">오늘의 서랍</h1>
+        <p class="intro">서랍 하나를 열어 이름 모를 누군가가 남겨둔 편지를 발견해보세요.</p>
+    </section>
+
+    <section class="cabinet-section" aria-label="서랍장">
+        <div class="cabinet-top">
+            <div>
+                <strong>{{page}}번 서랍장</strong>
+            </div>
+            <a class="write-link" href="/letter/new?writerType={{writerType}}">편지 넣기</a>
+        </div>
+
+        <div class="cabinet" role="grid" aria-label="{{page}}번 서랍장, 4행 4열">
+            {{#rows}}
+                <div class="drawer-row" role="row">
+                    {{#drawers}}
+                        <a class="drawer" href="/letter/{{number}}" role="gridcell" aria-label="{{number}}번 서랍 열기">
+                            <span class="drawer-number">{{number}}</span>
+                            <span class="drawer-pull" aria-hidden="true"></span>
+                        </a>
+                    {{/drawers}}
+                </div>
+            {{/rows}}
+        </div>
+
+        <nav class="pager" aria-label="서랍장 페이지">
+            {{#previousPage}}
+                <a href="/home?page={{previousPage}}&writerType={{writerType}}">이전 서랍장</a>
+            {{/previousPage}}
+            <span>{{page}}번 서랍장</span>
+            <a href="/home?page={{nextPage}}&writerType={{writerType}}">다음 서랍장</a>
+        </nav>
+    </section>
+</main>
+</body>
+</html>
