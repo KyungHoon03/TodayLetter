@@ -37,3 +37,5 @@ out/
 .vscode/
 
 application.yml
+application.properties
+docs/deploy-compose.todayletter.example.yml
